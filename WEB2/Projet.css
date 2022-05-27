@@ -1,0 +1,117 @@
+.wrapper {
+
+    width: auto;
+    border:black
+   
+}
+.filtre{
+    text-align: center;
+    
+}
+.button {
+    background-color:cornflowerblue ;
+    border: #000;
+    border-radius: 2rem;
+    color: white;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-family: arial;
+    font-size: 17px;
+    margin: 2px auto;
+    cursor: pointer;
+    float:left;
+    
+}
+.logo{
+    margin : 10px -200px 0 30px;
+    height: auto;
+    float:left
+}
+
+.barre{
+    height: 50px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.section{
+    height: auto;
+    text-align: center;
+    align-items: center;
+}
+
+#carte{
+    width: auto;
+    float:left;
+    font-family: arial;;
+}
+
+
+#footer {
+    background-color: #fff;
+    font-family: arial;
+    font-size: small;
+    color: #000;
+    clear: left;
+    text-align: center;
+    padding: 10px;
+    }
+
+.nav{
+    height: 70px;
+    line-height: 40px;
+    text-align: center;
+    align-items: center;
+    align-items: center;
+    background-color: cornflowerblue;
+}
+ 
+body{
+   size:auto;
+}
+
+.header{
+    font-family: arial;
+    color: cornflowerblue;
+    margin: 0 auto;
+    width:auto;
+    height: 150px;
+    background-color: #fff;
+    text-align: center;
+}
+
+table {
+    width: 680px;
+    margin: auto;
+    background-color: #9999EE;
+    }
+
+h2{
+    text-align: justify;
+    text-decoration:dotted;
+    font-family: arial;
+}
+
+h3{
+    font-family: arial;
+    font-style:inherit;
+}
+h4{
+    text-align: center;
+    font-family: arial;
+}
+p{
+    color:#000;   
+    font-family: arial;
+}
+ 
+li{
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
+    padding : 0 10px;
+    
+}
+
