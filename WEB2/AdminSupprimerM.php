@@ -39,55 +39,7 @@ if (isset($_GET['s']) and !empty($_GET['s'])) {
                     </div>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="Accueil.html"> Accueil </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Tout parcourir
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="ToutGeneraliste.php"> Médecine générale </a></li>
-                                    <li><a class="dropdown-item" href="ToutSpe.php"> Médecins spécialistes </a></li>
-                                    <li><a class="dropdown-item" href="ToutLabo.php"> Laboratoire de biologie médicale </a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Recherche
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="RechercheCentre.php"> Etablissements </a></li>
-                                    <li><a class="dropdown-item" href="RechercheMedecin.php"> Médecins </a></li>
-                                    <li><a class="dropdown-item" href="RechercheSpe.php"> Spécialisations </a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="RDV.html"> Rendez-vous </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Votre compte
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="AdminLogin.php"> Admin </a></li>
-                                    <li><a class="dropdown-item" href="MedecinLogin.php"> Médecin </a></li>
-                                    <li><a class="dropdown-item" href="PatientLogin.php"> Patient </a></li>
-                                </ul>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </div>
-            </nav>
+            
             <!--Section a modifier / remplir-->
 
             <div class="container section">

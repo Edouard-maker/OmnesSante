@@ -1,15 +1,10 @@
 <?php
 include "config.php";
 
-// Check user login or not
-if (!isset($_SESSION['uname'])) {
-    header('Location: MedecinLogin.php');
-}
-
 // logout
 if (isset($_POST['but_logout'])) {
     session_destroy();
-    header('Location: MedecinLogin.php');
+    header('Location: PatientLogin.php');
 }
 ?>
 
@@ -93,19 +88,38 @@ if (isset($_POST['but_logout'])) {
         </nav>
         <h1 style="text-align: center; color: #071f32;"> Bienvenue sur votre page patient </h1>
 
-        <div class="container-fluid text-center">
-            <div class="row content">
-                <div class="col-sm-2 sidenav">
-                    <p style="color: #071f32; font-weight: bold;"> Voici vos différentes options : </p>
-                    <p> <a style="color: #32465c; text-decoration: none;" href="#"> Chattez avec vos médecins </a> </p>
-                    <p> <a style="color: #32465c; text-decoration: none;" href="#"> Votre compte </a></p>
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-md-2 section">
+                   <br> <p>Que voulez-vous faire ?</p>
+                    <p> <a class="btn btn-secondary btn-sm" href="chatP.php"> Chattez avec vos médecins </a> </p>
+                    <form method='post' action="">
+                        <input class="btn btn-secondary btn-sm" type="submit" value="Déconnexion" name="but_logout">
+                    </form>
                 </div>
+            
+                <div class="col-md-6">
+                    <br><h2>Profil</h2>
+                    Nom : 
+                    <?php 
+                    echo $_SESSION['nomClient'];
+                    ?><br>Prénom :
+                    <?php 
+                    echo $_SESSION['prenomClient'];
+                    ?><br>Adresse :
+                    <?php 
+                    echo $_SESSION['adresseClient'];
+                    ?><br>Courriel :
+                    <?php 
+                    echo $_SESSION['courrielClient'];
+                    ?><br>Numéro de sécurité sociale :
+                    <?php 
+                    echo $_SESSION['numSS'];
+                    ?>
             </div>
         </div>
 
-        <form method='post' action="">
-            <input type="submit" value="Déconnexion" name="but_logout">
-        </form>
+        
 </body>
 
 </html>
