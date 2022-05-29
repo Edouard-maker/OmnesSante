@@ -82,7 +82,7 @@ if(isset($_GET['s']) AND !empty($_GET['s'])){
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="AdminLogin.php"> Admin </a></li>
                           <li><a class="dropdown-item" href="MedecinLogin.php"> Médecin </a></li>
-                          <li><a class="dropdown-item" href="ClientLogin.php"> Client </a></li>
+                          <li><a class="dropdown-item" href="PatientLogin.php"> Patient </a></li>
                         </ul>
                       </li>
                       

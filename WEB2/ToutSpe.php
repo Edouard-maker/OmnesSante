@@ -80,7 +80,7 @@ $allusers = $database->query('SELECT * FROM medecin WHERE specialisation NOT LIK
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="AdminLogin.php"> Admin </a></li>
                           <li><a class="dropdown-item" href="MedecinLogin.php"> Médecin </a></li>
-                          <li><a class="dropdown-item" href="ClientLogin.php"> Client </a></li>
+                          <li><a class="dropdown-item" href="PatientLogin.php"> Patient </a></li>
                         </ul>
                       </li>
                       
@@ -130,6 +130,7 @@ $allusers = $database->query('SELECT * FROM medecin WHERE specialisation NOT LIK
                         <?= $user['prenomPro']; ?><br>
                         <a href="mailto:omnessante@omnes.fr"><?= $user['courrielPro']; ?></a><br>
                         <?= $user['specialisation']; ?><br>
+                        <img src=<?= $user['photo']; ?>  >
                         <input type="submit" class="btn btn-outline-dark" name="envoyer" value="Prendre rendez-vous"><br><br>
                         
 

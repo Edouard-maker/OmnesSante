@@ -8,7 +8,7 @@ if (isset($_POST['but_submit'])) {
 
     if ($uname != "" && $password != "") {
 
-        $sql_query = "select count(*) as cntUser from patient where idPro='" . $uname . "' and mdpPro='" . $password . "'";
+        $sql_query = "select count(*) as cntUser from medecin where idPro='" . $uname . "' and mdpPro='" . $password . "'";
         $result = mysqli_query($con, $sql_query);
         $row = mysqli_fetch_array($result);
 
@@ -17,8 +17,7 @@ if (isset($_POST['but_submit'])) {
         if ($count > 0) {
 
             $_SESSION['uname'] = $uname;
-            echo "Bonjour $uname";
-            /*header('Location: home.php'); */
+            header('Location: MedecinAccueil.php');
         } else {
             echo "Id et mot de passe invalides";
         }
@@ -97,9 +96,9 @@ if (isset($_POST['but_submit'])) {
                                 Votre compte
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="AdminCreerCompte.php"> Admin </a></li>
-                                <li><a class="dropdown-item" href="MedecinCreerCompte.php"> Médecin </a></li>
-                                <li><a class="dropdown-item" href="PatientCreerCompte.php"> Patient </a></li>
+                                <li><a class="dropdown-item" href="AdminLogin.php"> Admin </a></li>
+                                <li><a class="dropdown-item" href="MedecinLogin.php"> Médecin </a></li>
+                                <li><a class="dropdown-item" href="PatientLogin.php"> Patient </a></li>
                             </ul>
                         </li>
 

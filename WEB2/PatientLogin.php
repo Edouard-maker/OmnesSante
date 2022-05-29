@@ -16,11 +16,11 @@ if (isset($_POST['but_submit'])) {
 
         if ($count > 0) {
 
-            $_SESSION['uname'] = $uname;
+             $uname = $_SESSION['uname'];
             echo "Bienvenue $uname";
             /*header('Location: home.php'); */
         } else {
-            echo "Login et mot de passe invalides";
+            echo "Invalid username and password";
         }
     }
 }
@@ -32,7 +32,7 @@ if (isset($_POST['but_submit'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title> Login Patient </title>
+    <title> Login Médecin </title>
     <link href="bootstrap.min.css" rel="stylesheet" />
     <link href="Projet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -99,7 +99,7 @@ if (isset($_POST['but_submit'])) {
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="AdminLogin.php"> Admin </a></li>
                                 <li><a class="dropdown-item" href="MedecinLogin.php"> Médecin </a></li>
-                                <li><a class="dropdown-item" href="PatientCreerCompte.php"> Patient </a></li>
+                                <li><a class="dropdown-item" href="PatientLogin.php"> Patient </a></li>
                             </ul>
                         </li>
 
@@ -130,12 +130,12 @@ if (isset($_POST['but_submit'])) {
             </form>
         </div>
     </div>
+
     <fieldset>
         <div id="footer">
             <a href="mailto:omnessante@omnes.fr"> omnessante@omnes.fr </a> | Téléphone : +33 6 11 11 11 11
             <p> Droits d'auteur | Copyright &copy;2022 Audrey Bacon, Reym Elkerdawy, Edouard Oprea, Marie Saliba </p>
         </div>
     </fieldset>
-</body>
 
-</html>
+</body>

@@ -79,6 +79,14 @@ body {
     background-color: #fff
 }
 
+navadmin a {
+    color: #32465c;
+    text-decoration: none;
+}
+
+.bouton_retour_admin {
+    background-color: red;
+}
 
 [tabindex="-1"]:focus {
     outline: 0 !important

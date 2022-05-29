@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 26 mai 2022 à 21:22
+-- Généré le : sam. 28 mai 2022 à 11:15
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -36,17 +36,14 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
   `loginAdmin` varchar(50) NOT NULL,
   `numeroAdmin` int(10) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`numeroAdmin`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `administrateur`
 --
 
 INSERT INTO `administrateur` (`mdpAdmin`, `nomAdmin`, `prenomAdmin`, `courrielAdmin`, `loginAdmin`, `numeroAdmin`) VALUES
-('marie', 'Saliba', 'Marie', 'marie1.salib@gmail.com', 'marie', 1),
-('audrey', 'Bacon', 'Audrey', 'audrey.bacon@gmail.com', 'audrey', 2),
-('reym', 'Elkerdawy', 'Reym', 'reym.elkerdawy@gmail.com', 'reym', 3),
-('edouard', 'Oprea', 'Edouard', 'edouard.oprea@gmail.com', 'edouard', 4);
+('mdp', 'Beos', 'Arem', 'arem.beos@mail.com', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -139,15 +136,15 @@ INSERT INTO `consultation` (`dateheure`, `salle`, `acte`, `numeroCons`, `client`
 DROP TABLE IF EXISTS `medecin`;
 CREATE TABLE IF NOT EXISTS `medecin` (
   `idPro` int(11) NOT NULL AUTO_INCREMENT,
-  `mdpPro` varchar(20) NOT NULL DEFAULT '0000',
+  `mdpPro` varchar(20) NOT NULL,
   `nomPro` varchar(50) NOT NULL,
   `prenomPro` varchar(50) NOT NULL,
-  `photoPro` longblob NOT NULL,
-  `specialisation` varchar(50) NOT NULL,
-  `cv` text NOT NULL,
-  `courrielPro` varchar(50) NOT NULL,
+  `photoPro` longblob,
+  `specialisation` varchar(50) DEFAULT NULL,
+  `cv` text,
+  `courrielPro` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idPro`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `medecin`
@@ -178,7 +175,9 @@ INSERT INTO `medecin` (`idPro`, `mdpPro`, `nomPro`, `prenomPro`, `photoPro`, `sp
 (21, '0000', 'Pradelle', 'Mylene', '', 'i.s.t', 'Faculte de medecine de Paris Descartes. Interne à l APHP. Conventionne secteur 2', 'mylene.pradelle@omnessante.fr'),
 (22, '0000', 'Atlan', 'Alexandra', '', 'i.s.t', 'Faculte de medecine de Paris UPMC. Interne à l APHP. Conventionne secteur 2', 'alexandra.atlan@omnessante.fr'),
 (23, '0000', 'Jordan', 'Michael', '', 'osteopathie', 'Ecole de kinesitherapie et d osteopathie.', 'michael.jordan@omnessante.fr'),
-(24, '0000', 'Bryant', 'Kobe', '', 'osteopathie', 'Ecole de kinesitherapie et d osteopathie.', 'kobe.bryant@omnessante.fr');
+(24, '0000', 'Bryant', 'Kobe', '', 'osteopathie', 'Ecole de kinesitherapie et d osteopathie.', 'kobe.bryant@omnessante.fr'),
+(25, 'mdp', 'rtg', 'med', NULL, NULL, NULL, 'ef@rf.com'),
+(45, 'ed', 'medm', 'lemed', NULL, NULL, NULL, 'med@omnessante.fr');
 
 -- --------------------------------------------------------
 
