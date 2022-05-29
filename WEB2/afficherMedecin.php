@@ -1,13 +1,14 @@
 <?php
+
 $database = new PDO('mysql:host=localhost;dbname=projet;', 'root','mdppoo');
 $allusers = $database->query('SELECT * FROM medecin');
-if(isset($_GET['s']) AND !empty($_GET['s'])){
-  $recherche= htmlspecialchars($_GET['s']);
-  $allusers=$database->query('SELECT * FROM medecin WHERE nomPro LIKE "%'.$recherche.'%"');
+$calendrier=$database->query('SELECT* FROM consultation');
+if(isset($_GET['rdv']) AND !empty($_GET['rdv'])){
+  $nom= htmlspecialchars($_GET['rdv']);
+  $allusers=$database->query('SELECT * FROM medecin WHERE nomPro LIKE "%'.$nom.'%"');
+  $calendrier=$database->query('SELECT * FROM consultation WHERE medecin LIKE "%'.$nom.'%"');
 }
 session_start();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +72,7 @@ session_start();
                          Recherche
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="RechercheCentre.php"> Etablissements </a></li>
+                          <li><a class="dropdown-item" href="RechercheCentre.php"> Etablissements </a></li>
                           <li><a class="dropdown-item" href="RechercheMedecin.php"> Médecins </a></li>
                           <li><a class="dropdown-item" href="RechercheSpe.php"> Spécialisations </a></li>
                         </ul>
@@ -98,45 +99,41 @@ session_start();
             <!--Section a modifier / remplir-->
             
             <div class="container section">
-              <div class="row">
-              <div class="col-md-3"></div>
-                <div class="col-md-6">
-                  <form method="get">
-                    <br><input type="search" class="barre" name="s" placeholder="Recherchez un nom de medecin">
-                    <input type="submit" class="btn btn-secondary btn-lg" name="envoyer" value="Rechercher"><br><br>
-                  </form>  
-                
-                <section class="affichermedecin">
-                  <?php
+            <?php
                     if($allusers->rowCount()>0){
                       while($user = $allusers->fetch()){
                         ?>
 
-                        <p><form method="get" action="afficherMedecin.php">
-                         <input type = "submit" name = "rdv" class="btn btn-outline-dark"value = "<?=$user['nomPro']?>">
-                        </form>
-                        <?= $user['nomPro']; ?> 
+                        <p><?= $user['nomPro']; ?> 
                         <?= $user['prenomPro']; ?><br>
                         <a href="mailto:omnessante@omnes.fr"><?= $user['courrielPro']; ?></a><br>
                         <?= $user['specialisation']; ?><br>
-                       <!-- <img src=<?//= $user['photo']; ?>  >-->
-                        
-                        
-                        
-                        <?php
-                      
-                      }
-                    }else{
-                        ?>
-                          <p>Désolé, aucun nom de médecin ne correspond à votre recherche!</p>
-                        <?php
+                        <!--<img src=<?= $user['photo']; ?>  >-->
+                                              
 
+                        <?php
                       }
-                    
-                  ?>
-                </section>             
-              </div>
-          </div>
+                    }
+
+                      if($calendrier->rowCount()>0){
+                        while($user = $calendrier->fetch()){
+
+                           
+                            ?>
+                            <?=$user['client']?>
+                            <p><form method="get" action="priseRDV.php">
+                               <input type = "submit" name = "horaire" class="btn btn-outline-dark"value = "<?=$user['dateheure']?>">
+                            </form>
+                           
+                            <br></p>
+                            <?php
+                            
+                          
+                        }
+                    }
+                    ?>
+
+                   
           </div>
     </fieldset>
     <fieldset>
@@ -148,4 +145,3 @@ session_start();
 </body>
 
 </html>
-   

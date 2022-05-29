@@ -3,13 +3,13 @@ include "config.php";
 
 // Check user login or not
 if (!isset($_SESSION['uname'])) {
-    header('Location: AdminLogin.php');
+    header('Location: MedecinLogin.php');
 }
 
 // logout
 if (isset($_POST['but_logout'])) {
     session_destroy();
-    header('Location: AdminLogin.php');
+    header('Location: MedecinLogin.php');
 }
 ?>
 
@@ -18,7 +18,7 @@ if (isset($_POST['but_logout'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title> Page Admin </title>
+    <title> Page Médecin </title>
     <link href="bootstrap.min.css" rel="stylesheet" />
     <link href="Projet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -91,14 +91,13 @@ if (isset($_POST['but_logout'])) {
                 </div>
             </div>
         </nav>
-        <h1 style="text-align: center; color: #071f32;"> Bienvenue sur votre page admin </h1>
+        <h1 style="text-align: center; color: #071f32;"> Bienvenue sur votre page médecin </h1>
 
         <div class="container-fluid text-center">
             <div class="row content">
                 <div class="col-sm-2 sidenav">
                     <p style="color: #071f32; font-weight: bold;"> Voici vos différentes options : </p>
-                    <p> <a style="color: #32465c; text-decoration: none;" href="AdminAjouterM.php"> Ajouter un médecin </a></p>
-                    <p> <a style="color: #32465c; text-decoration: none;" href="AdminSupprimerM.php"> Supprimer un médecin </a></p>
+                    <p> <a style="color: #32465c; text-decoration: none;" href="ChatM.php"> Chattez avec vos patients </a> </p>
                     <p> <a style="color: #32465c; text-decoration: none;" href="#"> Votre compte </a></p>
                 </div>
             </div>

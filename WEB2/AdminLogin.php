@@ -96,9 +96,9 @@ if (isset($_POST['but_submit'])) {
                                 Votre compte
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="AdminCreerCompte.php"> Admin </a></li>
-                                <li><a class="dropdown-item" href="MedecinCreerCompte.php"> Médecin </a></li>
-                                <li><a class="dropdown-item" href="PatientCreerCompte.php"> Patient </a></li>
+                                <li><a class="dropdown-item" href="AdminLogin.php"> Admin </a></li>
+                                <li><a class="dropdown-item" href="MedecinLogin.php"> Médecin </a></li>
+                                <li><a class="dropdown-item" href="PatientLogin.php"> Patient </a></li>
                             </ul>
                         </li>
 
