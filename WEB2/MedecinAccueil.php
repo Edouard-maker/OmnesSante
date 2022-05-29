@@ -45,60 +45,58 @@ if (isset($_POST['but_logout'])) {
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="Accueil.html"> Accueil </a>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Tout parcourir
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="ToutGeneraliste.php"> Médecine générale </a></li>
-                                <li><a class="dropdown-item" href="ToutSpe.php"> Médecins spécialistes </a></li>
-                                <li><a class="dropdown-item" href="ToutLabo.php"> Laboratoire de biologie médicale </a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Recherche
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="RechercheCentre.php"> Établissements </a></li>
-                                <li><a class="dropdown-item" href="RechercheMedecin.php"> Médecins </a></li>
-                                <li><a class="dropdown-item" href="RechercheSpe.php"> Spécialisations </a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="RDV.html"> Rendez-vous </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Votre compte
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="AdminLogin.php"> Admin </a></li>
-                                <li><a class="dropdown-item" href="MedecinLogin.php"> Médecin </a></li>
-                                <li><a class="dropdown-item" href="PatientLogin.php"> Patient</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <h1 style="text-align: center; color: #071f32;"> Bienvenue sur votre page médecin </h1>
-
+        
         <div class="container-fluid text-center">
             <div class="row content">
+                <div class="col-sm-8 text-left">
+                    <h1 style="color: #071f32;"> Bienvenue sur votre page médecin </h1>
+                    <div id="infos" class="infos" style="display: none;">
+                        <?php
+                        /* affiche les infos du compte actuellement connecté */
+                        //echo $_GET['idPro'];
+                        //echo $_SESSION['uname'];
+                        $sql_query = "select * from medecin where idPro=" . $_SESSION['uname'];
+                        $result = mysqli_query($con, $sql_query);
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo "<table>";
+                            echo "<tr>";
+                            echo "<th>Nom</th>";
+                            echo "<td>" . $row['nomPro'] . "</td>";
+                            echo "<tr>";
+                            echo "<th>Prénom</th>";
+                            echo "<td>" . $row['prenomPro'] . "</td>";
+                            echo "<tr>";
+                            echo "<th>Spécialisation</th>";
+                            echo "<td>" . $row['specialisation'] . "</td>";
+                            echo "<tr>";
+                            echo "<th>CV</th>";
+                            echo "<td>" . $row['cv'] . "</td>";
+                            echo "<tr>";
+                            echo "<th>Mail</th>";
+                            echo "<td>" . $row['courrielPro'] . "</td>";
+                            echo "</tr>";
+                            echo "</table>";
+                        }
+
+                        ?>
+                    </div>
+                </div>
+
                 <div class="col-sm-2 sidenav">
                     <p style="color: #071f32; font-weight: bold;"> Voici vos différentes options : </p>
                     <p> <a style="color: #32465c; text-decoration: none;" href="ChatM.php"> Chattez avec vos patients </a> </p>
-                    <p> <a style="color: #32465c; text-decoration: none;" href="#"> Votre compte </a></p>
+                    <p> <a id="myLink" href="MedecinAccueil.php" onclick="fct();return false;" style="text-decoration: none; color:#32465c;"> Votre compte</a> </p>
+                    <a>
+                        <form action="MedecinAccueil.php" role="search">
+                            <button class="bouton_retour_medecin" style="background-color: #32465c; color: #f6f6f6;"> Retour sur votre accueil </button>
+                        </form>
+                    </a>
+                    <script>
+                        function fct() {
+                            document.getElementById('infos').style.display = 'block';
+                        }
+                    </script>
+
                 </div>
             </div>
         </div>
